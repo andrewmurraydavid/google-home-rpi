@@ -12,6 +12,9 @@ module.exports.parseTriggerByName = function name(triggerName) {
   case constants.RELEASE:
     release();
     break;
+  case constants.LOGIN:
+    login();
+    break;
   }
 };
 
@@ -91,6 +94,31 @@ function release() {
     if (data === 'OK') {
       setTimeout(() => {
         serialPort.write('release\n', function(err) {
+          lineStream.destroy();
+          serialPort.close();
+          if (err) {
+            // eslint-disable-next-line no-console
+            return console.error('Error on write: ', err.message);
+          }
+        });
+      }, 10);
+    }
+  });
+}
+
+function login() {
+  const SerialPort = require('serialport');
+  const Readline = require('@serialport/parser-readline');
+  const serialPort = new SerialPort(process.env.SERIAL_PORT, {
+    baudRate: 9600
+  });
+
+  const lineStream = serialPort.pipe(new Readline({ delimiter: '\r\n' }));
+
+  lineStream.on('data', data => {
+    if (data === 'OK') {
+      setTimeout(() => {
+        serialPort.write('login\n', function(err) {
           lineStream.destroy();
           serialPort.close();
           if (err) {

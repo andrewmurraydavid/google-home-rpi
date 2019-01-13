@@ -1,0 +1,28 @@
+{
+  "name": "google-home-rpi",
+  "version": "1.0.0",
+  "description": "Cool Google Home Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewmurraydavid/google-home-rpi.git"
+  },
+  "author": "Andrew David Murray <andrewmurraydavid@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewmurraydavid/google-home-rpi/issues"
+  },
+  "homepage": "https://github.com/andrewmurraydavid/google-home-rpi#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "serialport": "^7.1.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "morgan": "^1.9.1"
+  }
+}

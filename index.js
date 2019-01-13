@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var port = 3000;
+var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var parseTrigger = require('./server/parseTriggers');

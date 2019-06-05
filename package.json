@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/andrewmurraydavid/google-home-rpi#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "express": "^4.16.4",
     "serialport": "^7.1.3"
   },
